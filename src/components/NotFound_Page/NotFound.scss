@@ -1,0 +1,75 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 100vh;
+  background-color: $bg-light;
+  text-align: center;
+
+  .not-found-wrapper {
+    background-color: $bg-white;
+    padding: 2.5rem 2rem;
+    border: 1px solid $border-thin-dark;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    max-width: 500px;
+    width: 100%;
+
+    .icon {
+      font-size: 3rem;
+      color: $color-primary;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: $color-text-dark;
+      margin-bottom: 0.5rem;
+
+      @include tablet {
+        font-size: 3rem;
+      }
+
+      @include mobile {
+        font-size: 2.4rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $color-text-dark;
+      margin-bottom: 1rem;
+
+      @include tablet {
+        font-size: 1.3rem;
+      }
+
+      @include mobile {
+        font-size: 1.1rem;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      color: $color-text-medium;
+      margin-bottom: 2rem;
+
+      @include tablet {
+        font-size: 0.95rem;
+      }
+
+      @include mobile {
+        font-size: 0.9rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

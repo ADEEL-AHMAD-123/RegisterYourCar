@@ -1,33 +1,38 @@
-import React, { useState } from 'react';
-import './Sidebar.scss';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Sidebar.scss";
+import { NavLink } from "react-router-dom";
 import {
-  FaTachometerAlt,
-  FaCar,
+  FaHome,
+  FaClipboard,
   FaChevronDown,
   FaChevronUp,
   FaUsers,
-} from 'react-icons/fa';
+  FaFileInvoice,
+  FaCog,
+  FaTimes,
+} from "react-icons/fa";
 
 const sidebarItems = [
+  { title: "Home", icon: <FaHome />, path: "/" },
   {
-    title: 'Dashboard',
-    icon: <FaTachometerAlt />,
-    path: '/',
-  },
-  {
-    title: 'Vehicles',
-    icon: <FaCar />,
+    title: "Processes",
+    icon: <FaClipboard />,
     subMenu: [
-      { title: 'All Vehicles', path: '/vehicles' },
-      { title: 'Add New', path: '/vehicle/add' },
+      { title: "Overview", path: "/processes/overview" },
+      { title: "Batch processing", path: "/processes/batch" },
+      { title: "Billing assistance", path: "/processes/billing" },
     ],
   },
   {
-    title: 'Users',
+    title: "Customers",
     icon: <FaUsers />,
-    path: '/users',
+    subMenu: [
+      { title: "Customer directory", path: "/customers/directory" },
+      { title: "Permanent powers of attorney", path: "/customers/power" },
+    ],
   },
+  { title: "Invoices", icon: <FaFileInvoice />, path: "/invoices" },
+  { title: "Settings", icon: <FaCog />, path: "/settings" },
 ];
 
 const Sidebar = ({ isOpen, closeSidebar }) => {
@@ -41,25 +46,38 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
   };
 
   return (
-    <aside className={`sidebar ${isOpen ? 'active' : ''}`}>
+    <aside className={`sidebar ${isOpen ? "active" : ""}`}>
+      <button
+        className="close-sidebar"
+        onClick={closeSidebar}
+        aria-label="Close Sidebar"
+      >
+        <FaTimes />
+      </button>
       <nav className="menu">
-        <button className="close-sidebar" onClick={closeSidebar}>×</button>
-
         {sidebarItems.map((item) => (
           <div className="menu-item" key={item.title}>
             {item.subMenu ? (
               <>
-                <div className="menu-heading" onClick={() => toggleMenu(item.title)}>
+                <div
+                  className="menu-heading"
+                  onClick={() => toggleMenu(item.title)}
+                >
                   <div className="left">
                     <span className="icon">{item.icon}</span>
                     <span className="label">{item.title}</span>
                   </div>
                   <span className="arrow">
-                    {openMenus[item.title] ? <FaChevronUp /> : <FaChevronDown />}
+                    {openMenus[item.title] ? (
+                      <FaChevronUp />
+                    ) : (
+                      <FaChevronDown />
+                    )}
                   </span>
                 </div>
-
-                <div className={`sub-menu ${openMenus[item.title] ? 'open' : ''}`}>
+                <div
+                  className={`sub-menu ${openMenus[item.title] ? "open" : ""}`}
+                >
                   {item.subMenu.map((sub) => (
                     <NavLink to={sub.path} key={sub.title} className="sub-item">
                       {sub.title}
@@ -69,8 +87,10 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
               </>
             ) : (
               <NavLink to={item.path} className="menu-link">
-                <span className="icon">{item.icon}</span>
-                <span className="label">{item.title}</span>
+                <div className="left">
+                  <span className="icon">{item.icon}</span>
+                  <span className="label">{item.title}</span>
+                </div>
               </NavLink>
             )}
           </div>

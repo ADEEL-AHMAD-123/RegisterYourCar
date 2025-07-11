@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import { Outlet } from 'react-router-dom';
@@ -10,12 +10,24 @@ const Layout = () => {
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const closeSidebar = () => setIsSidebarOpen(false);
 
+  // Lock scroll when sidebar is open (optional UX)
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isSidebarOpen]);
+
   return (
     <div className={`app-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
       <Header toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
 
-      {isSidebarOpen && <div className="overlay" onClick={closeSidebar}></div>}
+      {/* ⬇️ Backdrop overlay shown only in mobile/tablet when sidebar is open */}
+      {isSidebarOpen && (
+        <div className="backdrop-overlay" onClick={closeSidebar}></div>
+      )}
 
       <main className="main-content">
         <Outlet />

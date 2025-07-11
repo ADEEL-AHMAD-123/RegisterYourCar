@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import './Header.scss';
-import { FaBell, FaChevronDown, FaSignOutAlt, FaBars } from 'react-icons/fa';
+import {
+  FaBell,
+  FaChevronDown,
+  FaSignOutAlt,
+  FaBars,
+  FaTimes,
+} from 'react-icons/fa';
 
-const Header = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebar, isSidebarOpen }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setDropdownOpen((prev) => !prev);
@@ -10,16 +16,17 @@ const Header = ({ toggleSidebar }) => {
   return (
     <header className="main-header">
       <div className="header-inner">
-        {/* Left: Hamburger + Logo */}
         <div className="header-left">
-        <button className="hamburger" onClick={toggleSidebar} aria-label="Toggle Sidebar">
-  <FaBars />
-</button>
-
+          <button
+            className="hamburger"
+            onClick={toggleSidebar}
+            aria-label="Toggle Sidebar"
+          >
+            {isSidebarOpen ? <FaTimes /> : <FaBars />}
+          </button>
           <div className="logo">CarReg</div>
         </div>
 
-        {/* Right: Notification + Profile */}
         <div className="header-right">
           <div className="notification-icon">
             <FaBell />
@@ -43,8 +50,6 @@ const Header = ({ toggleSidebar }) => {
           </div>
         </div>
       </div>
-
-      {/* Decorative colored bar */}
       <div className="header-bar"></div>
     </header>
   );

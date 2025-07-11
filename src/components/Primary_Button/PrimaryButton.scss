@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.primary-btn {
+  background-color: $color-primary;
+  color: $bg-white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($color-primary, 7%);
+  }
+
+  @include tablet {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.25rem;
+  }
+
+  @include mobile {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}

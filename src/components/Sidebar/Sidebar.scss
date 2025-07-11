@@ -8,43 +8,61 @@
   width: 250px;
   height: 100vh;
   background-color: $bg-lighter;
-  padding-top: 74px; 
+  padding-top: 74px;
   z-index: 900;
+  overflow-y: auto;
+  border-right: 1px solid $border-thin-light;
+  transition: transform 0.3s ease-in-out;
 
-  @include mobile {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+  .close-sidebar {
+    display: none;
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: $color-text-dark;
+    cursor: pointer;
+    z-index: 1001;
 
-    &.active {
-      transform: translateX(0);
+    @include mobile-tablet {
+      display: block;
     }
 
-    .close-sidebar {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      font-size: 1.5rem;
-      color: $color-text-dark;
-      border: none;
-      cursor: pointer;
+    &:hover {
+      color: $color-primary;
     }
   }
 
   .menu {
+    width: 90%;
+    margin: 2.5rem auto 2rem auto;
+    position: relative;
+
     .menu-item {
+      margin-top: 1rem;
+
       .menu-link,
       .menu-heading {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         padding: 0.75rem 1rem;
-        color: $color-text-dark;
-        font-weight: 500;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $color-text-medium;
         cursor: pointer;
+        text-decoration: none;
+        border-radius: 0.5rem;
 
         &:hover {
-          background-color: $bg-light;
+          background-color: $overlay-bg;
+        }
+
+        &.active {
+          background-color: $bg-white;
+          font-weight: 600;
         }
 
         .left {
@@ -55,6 +73,7 @@
 
         .icon {
           font-size: 1rem;
+          color: $color-text-medium;
         }
 
         .label {
@@ -63,6 +82,7 @@
 
         .arrow {
           font-size: 0.75rem;
+          color: $color-text-medium;
         }
       }
 
@@ -77,16 +97,31 @@
 
         .sub-item {
           display: block;
-          padding: 0.65rem 2rem;
+          padding: 0.65rem 2.5rem;
           font-size: 0.9rem;
           color: $color-text-medium;
+          text-decoration: none;
+          font-weight: 700;
+          border-radius: 0.5rem;
 
           &:hover {
-            background-color: $bg-lighter;
+            background-color: $overlay-bg;
+          }
+
+          &.active {
+            background-color: $bg-white;
+            font-weight: 800;
             color: $color-primary;
           }
         }
       }
+    }
+  }
+
+  @include mobile-tablet {
+    transform: translateX(-100%);
+    &.active {
+      transform: translateX(0);
     }
   }
 }
