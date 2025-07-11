@@ -24,7 +24,12 @@ const Header = ({ toggleSidebar, isSidebarOpen }) => {
           >
             {isSidebarOpen ? <FaTimes /> : <FaBars />}
           </button>
-          <div className="logo">CarReg</div>
+          <div className="logo">
+  <span className="line-1">Zulassungsbeast</span>
+  <span className="line-2">Pro</span>
+</div>
+
+
         </div>
 
         <div className="header-right">

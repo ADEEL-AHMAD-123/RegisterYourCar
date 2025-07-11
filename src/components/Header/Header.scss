@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
 
-  z-index: 1000;
+  z-index: 10;
 
   .header-inner {
     background-color: $bg-light;
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 1.5rem;
-    overflow: hidden;
+    // overflow: hidden;
 
     @include mobile {
       padding: 0.75rem 0.75rem;
@@ -49,18 +49,33 @@
       }
 
       .logo {
-        font-size: 1.4rem;
         font-weight: 700;
         color: $color-text-dark;
-
-        @include mobile {
-          font-size: 1rem;
+        line-height: 1.1;
+        display: flex;
+        flex-direction: column;
+      
+        .line-1 {
+          font-size: 1.1rem;
         }
-
-        @include tablet {
-          font-size: 1.2rem;
+      
+        .line-2 {
+          font-size: 0.85rem;
+          letter-spacing: 1px;
+          color: $color-primary;
+        }
+      
+        @include mobile {
+          .line-1 {
+            font-size: 0.95rem;
+          }
+      
+          .line-2 {
+            font-size: 0.75rem;
+          }
         }
       }
+      
     }
 
     .header-right {
@@ -193,6 +208,7 @@
             width: 100%;
             cursor: pointer;
 
+
             .logout-icon {
               font-size: 1.1rem;
               color: #EF4444;
@@ -230,5 +246,6 @@
     background: $color-primary;
     width: 100%;
     clip-path: polygon(100% 0%, 100% 100%, 0% 40%, 0% 0%);
+    overflow: auto;
   }
 }
