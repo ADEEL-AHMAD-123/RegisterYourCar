@@ -1,0 +1,163 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.process-table-wrapper {
+  margin-top: 2rem;
+
+  .table-scroll {
+    overflow-x: auto;
+
+    .process-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+
+      thead {
+        background-color: $bg-light;
+
+        th {
+          text-align: left;
+          padding: 0.75rem 1rem;
+          font-size: 0.95rem;
+          color: $color-text-dark;
+        }
+      }
+
+      tbody {
+        tr.main-row {
+          border-bottom: 1px solid $border-thin-light;
+
+          td {
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            color: $color-text-medium;
+          }
+
+          .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+
+            &.completed {
+              background-color: #10b981;
+            }
+            &.rejected {
+              background-color: #ef4444;
+            }
+            &.processing {
+              background-color: #f59e0b;
+            }
+          }
+
+          .expand-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            color: $color-text-dark;
+          }
+        }
+
+        .details-row {
+          td {
+            background-color: $bg-lighter;
+            padding: 1rem;
+
+            .details-box {
+              .steps-track {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+
+                .step {
+                  display: flex;
+                  align-items: center;
+                  background-color: $bg-white;
+                  border: 1px solid $border-thin-dark;
+                  padding: 0.5rem 0.8rem;
+                  border-radius: 6px;
+                  font-size: 0.85rem;
+                  color: $color-text-medium;
+
+                  &.done {
+                    border-color: $color-primary;
+                    color: $color-primary;
+                  }
+
+                  &.current {
+                    background-color: $color-primary;
+                    color: $bg-white;
+                    font-weight: 600;
+                  }
+
+                  .arrow-right {
+                    margin: 0 0.5rem;
+                    font-weight: bold;
+                  }
+                }
+              }
+
+              .rejection-box {
+                margin-top: 1.5rem;
+                background: #fee2e2;
+                border-left: 4px solid #ef4444;
+                padding: 1rem;
+                border-radius: 4px;
+
+                h4 {
+                  color: #b91c1c;
+                  font-weight: 700;
+                  margin-bottom: 0.5rem;
+                }
+
+                p {
+                  font-size: 0.9rem;
+                  color: #7f1d1d;
+                }
+
+                .problem-solved {
+                  margin-top: 1rem;
+                  font-size: 0.85rem;
+
+                  button {
+                    margin-left: 1rem;
+                    background-color: $color-primary;
+                    color: $bg-white;
+                    padding: 0.4rem 0.8rem;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    .process-table {
+      font-size: 0.85rem;
+
+      th,
+      td {
+        padding: 0.6rem 0.75rem;
+      }
+
+      .step {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .arrow-right {
+          display: none;
+        }
+      }
+    }
+  }
+}

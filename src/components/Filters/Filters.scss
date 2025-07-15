@@ -1,0 +1,235 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.filters-bar {
+  background-color: $bg-white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  margin: 2rem 0;
+  overflow: visible;
+
+  .filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+    overflow: visible;
+  }
+}
+
+.filter-wrapper {
+  flex: 1 1 200px;
+  min-width: 160px;
+  position: relative;
+}
+
+
+.floating-input {
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 1rem 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid $border-thin-dark;
+    border-radius: 6px;
+    background-color: $bg-white;
+    color: $color-text-dark;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(0.5);
+    }
+  }
+
+  label {
+    position: absolute;
+    top: -0.4rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    color: $color-text-dark;
+    background-color: $bg-white;
+    padding: 0 0.35rem;
+    pointer-events: none;
+  }
+}
+
+// --- Dropdown filters
+.dropdown-filter {
+  position: relative;
+  
+
+  .dropdown-display {
+    position: relative;
+    border: 1px solid $border-thin-dark;
+    border-radius: 6px;
+    padding: 1rem 0.75rem 0.5rem;
+    background-color: $bg-white;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    cursor: pointer;
+    min-height: 48px;
+    
+
+
+  
+ 
+    label {
+      position: absolute;
+      top: -0.4rem;
+      left: 0.75rem;
+      font-size: 0.75rem;
+      color: $color-text-dark;
+      background-color: $bg-white;
+      padding: 0 0.35rem;
+      pointer-events: none;
+      opacity: 0;
+    }
+  
+    &.open label,
+    label.floating {
+      top: -0.6rem;
+      font-size: 0.75rem;
+      color: $color-text-dark;
+      opacity: 1;
+    }
+  
+    .selected-values-wrapper {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      align-items: center;
+      min-width: 0;
+  
+      .selected-values {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+  
+        .tag {
+          background-color: $color-primary;
+          color: white;
+          padding: 0.3rem 0.6rem;
+          border-radius: 1rem;
+          font-size: 0.75rem;
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+  
+          .remove-icon {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+  
+            &:hover {
+              color: lighten($bg-white, 10%);
+            }
+          }
+        }
+  
+        .placeholder {
+          color: $color-text-medium;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  
+    .chevron {
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+      font-size: 1rem;
+      align-self: center;
+      transition: transform 0.2s ease;
+  
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  
+
+  .dropdown-body {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    background-color: $bg-white;
+    border: 1px solid $border-thin-dark;
+    border-radius: 6px;
+    margin-top: 0.3rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    padding: 0.75rem;
+    min-width: 100%;
+    max-width: 280px;
+    animation: dropdown-fade 0.2s ease;
+
+    .dropdown-search {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid $border-thin-dark;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      max-height: 180px;
+      overflow-y: auto;
+
+      .dropdown-checkbox {
+        font-size: 0.88rem;
+        color: $color-text-dark;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        input {
+          accent-color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+// --- Dropdown animation
+@keyframes dropdown-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Responsive
+@include mobile {
+  .filters-bar {
+    padding: 1rem;
+  }
+
+}
+@include mobile {
+  .filters-row {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem 1rem;
+  }
+
+  .filters-bar {
+    padding: 1rem;
+  }
+}
+
+
