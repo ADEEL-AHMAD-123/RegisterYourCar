@@ -1,7 +1,24 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 .overview-page {
     position: relative;
     overflow: visible; 
     min-height: 100vh; 
     padding-bottom: 4rem; 
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: $color-text-dark;
+      margin-bottom: 0.5rem;
+      padding-bottom: 2rem; 
+
+      @include tablet {
+        font-size: 2rem;
+      }
+
+      @include mobile {
+        font-size: 1.6rem;
+      }
+  }
   }
   

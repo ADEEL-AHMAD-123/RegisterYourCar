@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Filters.scss';
 import { ChevronDown } from 'lucide-react';
+import { FaSearch } from 'react-icons/fa';
+
 
 const options = {
   customerTypes: ['Private', 'Business', 'Dealer'],
@@ -93,9 +95,25 @@ const Filters = () => {
   const [customers, setCustomers] = useState([]);
   const [orders, setOrders] = useState([]);
   const [statuses, setStatuses] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="filters-bar">
+     <div className="filters-search-bar">
+  <div className="search-input-wrapper">
+    <FaSearch className="search-icon" />
+    <input
+      type="text"
+      placeholder="Search by reference number, name or email"
+      value={searchValue}
+      onChange={(e) => setSearchValue(e.target.value)}
+    />
+  </div>
+  <button className="search-button">Search</button>
+</div>
+
+
+
       <div className="filters-row">
         <div className="filter-wrapper">
           <div className={`floating-input ${fromDate ? 'active' : ''}`}>
@@ -141,5 +159,6 @@ const Filters = () => {
     </div>
   );
 };
+
 
 export default Filters;
