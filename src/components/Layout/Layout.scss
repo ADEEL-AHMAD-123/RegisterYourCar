@@ -5,14 +5,15 @@
   display: flex;
 
   .main-content {
-    padding-top: 74px;
+    padding-top: 100px;
     flex-grow: 1;
-    background-color: $bg-light;
+
     min-height: 100vh;
     transition: margin-left 0.3s ease;
 
     @include mobile-tablet {
       margin-left: 0;
+      padding-top: 50px;
     }
 
     @include desktop {

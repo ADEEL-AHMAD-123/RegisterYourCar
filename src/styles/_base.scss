@@ -7,19 +7,22 @@ body {
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
   }
-  html, body {
-    overflow-x: hidden;
+
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
+  
 
   .page-container {
     background-color: $bg-white;
     padding: 0rem 2rem;
+    overflow: hidden;
   
     @include tablet {
       padding: 0rem 1.5rem;
     }
   
     @include mobile {
-      padding: 0rem 0rem;
+      padding: 1rem ;
     }
   }  

@@ -1,25 +1,25 @@
-// COLORS
-$color-primary: #3B82F6; 
+// styles/variables.scss
 
+// COLORS
+$color-primary: #3B82F6; // blue (accent)
 
 // Text Colors
-$color-text-dark: #444C54;   // very dark text (e.g. headings)
-$color-text-medium: #6B6B6B; // less dark (paragraphs)
-$color-text-light: #F2F2F2;  // lighter text (labels, hints)
+$color-text-dark: #1e293b;   // dark navy blue (headings)
+$color-text-medium: #6b7280; // gray-500 (paragraphs)
+$color-text-light: #f9fafb;  // light (on dark backgrounds)
 
-
-
-$bg-white: #FFFFFF;
-$bg-light: #F8F8F8;
-$bg-lighter: #F2F2F2;
+// Backgrounds
+$bg-white: #ffffff;
+$bg-light: #f8fafc;           // very light gray
+$bg-lighter: #f1f5f9;         // sidebar-like light
+$bg-dark: #1f2937;            // for sidebar
 
 // Borders
-$border-thin-light: #EEEEEE;
-$border-thin-dark: rgba(0, 0, 0, 0.1); // thin dark border
+$border-thin-light: #e5e7eb;
+$border-thin-dark: rgba(0, 0, 0, 0.08);
 
 // Overlay
 $overlay-bg: rgba(0, 0, 0, 0.03);
 
-// FONT
+// Fonts
 $font-base: 'Inter', sans-serif;
-

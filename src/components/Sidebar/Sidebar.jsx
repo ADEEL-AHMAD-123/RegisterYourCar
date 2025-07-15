@@ -10,6 +10,7 @@ import {
   FaFileInvoice,
   FaCog,
   FaTimes,
+  FaSignOutAlt
 } from "react-icons/fa";
 
 const sidebarItems = [
@@ -96,6 +97,12 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           </div>
         ))}
       </nav>
+      <div className="mobile-logout">
+  <button className="logout-btn">
+    <FaSignOutAlt className="icon" />
+    <span>Logout</span>
+  </button>
+</div>
     </aside>
   );
 };

@@ -1,0 +1,180 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.customer-directory {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: $color-text-dark;
+      margin-bottom: 1.5rem;
+
+      @include tablet {
+        font-size: 2rem;
+      }
+
+      @include mobile {
+        font-size: 1.6rem;
+      }
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      .search-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 180px;
+        max-width: 300px;
+
+        label {
+          font-size: 0.9rem;
+          color: $color-text-medium;
+          margin-bottom: 0.5rem;
+        }
+
+        input {
+          padding: 0.6rem 1rem;
+          border: 1px solid $border-thin-light;
+          border-radius: 8px;
+          background-color: $bg-light;
+          color: $color-text-dark;
+          font-size: 1rem;
+
+          &:focus {
+            outline: none;
+            border-color: $color-primary;
+            background-color: $bg-white;
+          }
+
+          @include tablet {
+            font-size: 0.95rem;
+            padding: 0.5rem 0.9rem;
+          }
+
+          @include mobile {
+            width: 100%;
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .add-customer-btn {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+        background-color: $color-primary;
+        color: $bg-white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: darken($color-primary, 5%);
+        }
+
+        @include tablet {
+          padding: 0.5rem 0.9rem;
+          font-size: 0.95rem;
+        }
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .mobile-scroll-note {
+    display: none;
+    font-size: 0.85rem;
+    color: $color-text-medium;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    background-color: $bg-white;
+    -webkit-overflow-scrolling: touch;
+
+    .directory-table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 1rem;
+        font-size: 1rem;
+        text-align: left;
+        white-space: nowrap;
+        border-bottom: 1px solid $border-thin-light;
+
+        @include tablet {
+          font-size: 0.95rem;
+          padding: 0.8rem 0.9rem;
+        }
+
+        @include mobile {
+          font-size: 0.85rem;
+          padding: 0.7rem 0.7rem;
+        }
+      }
+
+      th {
+        background-color: $bg-light;
+        color: $color-text-dark;
+        font-weight: 600;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+
+      tbody {
+        color: $color-text-medium;
+
+        tr:nth-child(even) {
+          background-color: $bg-lighter;
+        }
+
+        tr:hover {
+          background-color: lighten($color-primary, 45%);
+          transition: background-color 0.3s ease;
+        }
+
+        .view-btn {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.9rem;
+          background-color: $color-primary;
+          color: $bg-white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: darken($color-primary, 5%);
+          }
+        }
+      }
+    }
+  }
+}
