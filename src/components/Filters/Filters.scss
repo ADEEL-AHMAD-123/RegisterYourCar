@@ -2,7 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .filters-bar {
-  background-color: $bg-white;
+  background-color: $bg-light;
   border-radius: 0.75rem;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -110,11 +110,13 @@
   flex: 1 1 200px;
   min-width: 160px;
   position: relative;
+  overflow: visible;
 }
 
 
 .floating-input {
   position: relative;
+overflow: visible;
 
   input {
     width: 100%;
@@ -124,6 +126,8 @@
     border-radius: 6px;
     background-color: $bg-white;
     color: $color-text-dark;
+
+
 
     &:focus {
       outline: none;
@@ -144,6 +148,8 @@
     background-color: $bg-white;
     padding: 0 0.35rem;
     pointer-events: none;
+    z-index: 2;
+
   }
 }
 
@@ -163,6 +169,8 @@
     flex-wrap: nowrap;
     cursor: pointer;
     min-height: 48px;
+overflow: visible;
+
     
 
 
@@ -178,6 +186,7 @@
       padding: 0 0.35rem;
       pointer-events: none;
       opacity: 0;
+
     }
   
     &.open label,

@@ -2,7 +2,7 @@ import React from 'react';
 import './Overview.scss';
 import ProcessActions from '../../components/ProcessActionsButton/ProcessActions';
 import Filters from '../../components/Filters/Filters';
-// import ProcessTable from '../../components/ProcessTable/ProcessTable';
+import ProcessTable from '../../components/ProcessTable/ProcessTable';
 
 const Overview = () => {
   return (
@@ -12,7 +12,7 @@ const Overview = () => {
         <ProcessActions />
       </div>
       <Filters />
-      {/* <ProcessTable /> */}
+      <ProcessTable />
     </section>
   );
 };
