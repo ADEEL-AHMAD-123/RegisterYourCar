@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Filters.scss';
+import './OverviewFilters.scss';
 import { ChevronDown } from 'lucide-react';
 import { FaSearch } from 'react-icons/fa';
 

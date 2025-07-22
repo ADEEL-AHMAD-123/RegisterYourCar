@@ -1,145 +1,102 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.billing-page {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+.billing-assistance {
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: $color-text-dark;
+    padding-bottom: 1rem; 
 
-  .header {
-    width: 100%;
-    margin-bottom: 2rem;
-
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: $color-text-dark;
-      margin-bottom: 1.5rem;
-      text-align: left;
-
-      @include tablet {
-        font-size: 2rem;
-      }
-
-      @include mobile {
-        font-size: 1.6rem;
-      }
+    @include tablet {
+      font-size: 2rem;
     }
-
-    .filters {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      align-items: flex-end;
-
-      .select-wrapper {
-        display: flex;
-        flex-direction: column;
-        min-width: 160px;
-
-        label {
-          font-size: 0.9rem;
-          color: $color-text-medium;
-          margin-bottom: 0.5rem;
-        }
-
-        select {
-          padding: 0.6rem 1rem;
-          border: 1px solid $border-thin-light;
-          border-radius: 8px;
-          background-color: $bg-light;
-          color: $color-text-dark;
-          font-size: 1rem;
-          appearance: none;
-          background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='%23666' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 1rem center;
-          background-size: 10px 6px;
-
-          &:focus {
-            outline: none;
-            border-color: $color-primary;
-            background-color: $bg-white;
-          }
-
-          @include mobile {
-            font-size: 0.95rem;
-            padding: 0.5rem 0.9rem;
-          }
-        }
-      }
-    }
-  }
-
-  .mobile-scroll-note {
-    display: none;
-    font-size: 0.85rem;
-    color: $color-text-medium;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
 
     @include mobile {
-      display: block;
+      font-size: 1.6rem;
+    }
+}
+  .filters-bar {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+   
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    
+    margin-bottom: 2rem;
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 200px;
+
+      label {
+        font-size: 0.9rem;
+        color: $color-text-dark;
+        margin-bottom: 0.4rem;
+      }
+
+      select {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid $border-thin-light;
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        background-color: $bg-light;
+        color: $color-text-medium;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $color-primary;
+        }
+      }
     }
   }
 
-  .billing-table-wrapper {
+}
+.floating-input {
+  position: relative;
+  @include desktop {
+width: 70%;
+  }
+  
+
+  select {
     width: 100%;
-    margin-top: 2rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    padding: 1rem 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid $border-thin-dark;
+    border-radius: 6px;
     background-color: $bg-white;
+    color: $color-text-dark;
 
-    -webkit-overflow-scrolling: touch;
-
-    .billing-table {
-      width: 100%;
-      min-width: 650px;
-      border-collapse: collapse;
-
-      th, td {
-        padding: 1rem;
-        font-size: 1rem;
-        text-align: left;
-        white-space: nowrap;
-        border-bottom: 1px solid $border-thin-light;
-
-        @include tablet {
-          font-size: 0.95rem;
-          padding: 0.8rem 0.9rem;
-        }
-
-        @include mobile {
-          font-size: 0.85rem;
-          padding: 0.7rem 0.7rem;
-        }
-      }
-
-      th {
-        background-color: $bg-light;
-        color: $color-text-dark;
-        font-weight: 600;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-      }
-
-      tbody {
-        color: $color-text-medium;
-
-        tr:nth-child(even) {
-          background-color: $bg-lighter;
-        }
-
-        tr:hover {
-          background-color: lighten($color-primary, 45%);
-          transition: background-color 0.3s ease;
-        }
-      }
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
     }
+  }
+
+  label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.9rem;
+    color: $color-text-medium;
+    background-color: transparent;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    z-index: 2;
+  }
+
+  &.active label,
+  select:focus + label {
+    top: -0.4rem;
+    font-size: 0.75rem;
+    color: $color-text-dark;
+    background-color: $bg-white;
+    padding: 0 0.35rem;
   }
 }

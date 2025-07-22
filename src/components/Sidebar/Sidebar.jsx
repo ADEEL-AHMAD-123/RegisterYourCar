@@ -20,7 +20,6 @@ const sidebarItems = [
     icon: <FaClipboard />,
     subMenu: [
       { title: "Overview", path: "/processes/overview" },
-      { title: "Batch processing", path: "/processes/batch" },
       { title: "Billing assistance", path: "/processes/billing" },
     ],
   },
