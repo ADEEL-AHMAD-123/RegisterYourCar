@@ -6,13 +6,24 @@
   top: 0;
   left: 0;
   width: 240px;
-  height: 100vh;
+  height: 100vh; // fallback
+
   background-color: $bg-dark;
   color: $color-text-light;
   padding-top: 74px;
   z-index: 99;
   transition: transform 0.3s ease;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  // Modern fix: use dynamic viewport height with fallback
+  height: 100dvh;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
 
   .close-sidebar {
     display: none;
@@ -56,7 +67,6 @@
         @include mobile-tablet {
           margin: 0;
         }
-        
 
         &:hover {
           background-color: rgba(255, 255, 255, 0.06);
@@ -84,7 +94,6 @@
         overflow: hidden;
         transition: max-height 0.3s ease;
         margin-left: 1rem;
-        
 
         &.open {
           max-height: 500px;
@@ -98,6 +107,7 @@
           border-radius: 0.4rem;
           text-decoration: none;
           margin: 0.5rem 0;
+
           &:hover {
             background-color: rgba(255, 255, 255, 0.06);
           }
@@ -109,6 +119,11 @@
         }
       }
     }
+
+    @include mobile-tablet {
+      flex: 1;
+      overflow-y: auto;
+    }
   }
 
   @include mobile-tablet {
@@ -118,13 +133,16 @@
     }
   }
 }
+
 .mobile-logout {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 0;
-  width: 70%;
-  padding: 0 1rem;
   display: none;
+
+  @include mobile {
+    display: block;
+    margin-top: auto;
+    padding: 1rem;
+    width: 100%;
+  }
 
   .logout-btn {
     width: 100%;
@@ -149,9 +167,5 @@
     &:hover {
       background-color: #dc2626;
     }
-  }
-
-  @include mobile-tablet {
-    display: block;
   }
 }
