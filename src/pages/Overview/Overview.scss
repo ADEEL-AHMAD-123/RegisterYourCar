@@ -1,10 +1,8 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 .overview-page {
-    position: relative;
-    overflow: visible; 
-    min-height: 100vh; 
-    padding-bottom: 4rem; 
+  
+padding-bottom: 4rem; 
     h1 {
       font-size: 2.4rem;
       font-weight: 800;
