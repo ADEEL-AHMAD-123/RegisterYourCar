@@ -11,6 +11,7 @@ import BatchProcessing from '../pages/BatchProcessing/BatchProcessing';
 import BillingAssistance from '../pages/BillingAssistance/BillingAssistance';
 import CustomerDirectory from '../pages/CustomerDirectory/CustomerDirectory';
 import Overview from '../pages/Overview/Overview';
+import PowerOfAttorney from '../pages/PowerOfAttorney/PowerOfAttorney';
 
 const AppRoutes = () => {
   return (
@@ -19,7 +20,8 @@ const AppRoutes = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/processes/overview" element={<Overview />} />
         <Route path="/processes/billing" element={<BillingAssistance />} />
-        {/* <Route path="/customers/directory" element={<CustomerDirectory />} /> */}
+        <Route path="/permanent-poa" element={<PowerOfAttorney />} />
+
 
        
       </Route>

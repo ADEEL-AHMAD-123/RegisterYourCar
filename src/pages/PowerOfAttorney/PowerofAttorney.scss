@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.power-of-attorney {
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: $color-text-dark;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+
+    @include mobile {
+      font-size: 1.6rem;
+    }
+  }
+
+  .filters-bar {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-wrapper {
+    width: 100%;
+
+    @include desktop {
+      width: 35%;
+    }
+  }
+}
+
+.floating-input {
+  position: relative;
+  width: 100%;
+
+  input,
+  select {
+    width: 100%;
+    padding: 1rem 0.75rem 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid $border-thin-dark;
+    border-radius: 6px;
+    background-color: $bg-white;
+    color: $color-text-dark;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  
+}

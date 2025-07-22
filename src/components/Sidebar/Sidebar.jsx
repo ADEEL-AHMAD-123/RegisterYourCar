@@ -6,11 +6,11 @@ import {
   FaClipboard,
   FaChevronDown,
   FaChevronUp,
-  FaUsers,
   FaFileInvoice,
   FaCog,
   FaTimes,
-  FaSignOutAlt
+  FaSignOutAlt,
+  FaFileSignature, 
 } from "react-icons/fa";
 
 const sidebarItems = [
@@ -24,12 +24,9 @@ const sidebarItems = [
     ],
   },
   {
-    title: "Customers",
-    icon: <FaUsers />,
-    subMenu: [
-      { title: "Customer directory", path: "/customers/directory" },
-      { title: "Permanent powers of attorney", path: "/customers/power" },
-    ],
+    title: "Durable powers of attorney",
+    icon: <FaFileSignature />,
+    path: "/permanent-poa",
   },
   { title: "Invoices", icon: <FaFileInvoice />, path: "/invoices" },
   { title: "Settings", icon: <FaCog />, path: "/settings" },
@@ -68,16 +65,10 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
                     <span className="label">{item.title}</span>
                   </div>
                   <span className="arrow">
-                    {openMenus[item.title] ? (
-                      <FaChevronUp />
-                    ) : (
-                      <FaChevronDown />
-                    )}
+                    {openMenus[item.title] ? <FaChevronUp /> : <FaChevronDown />}
                   </span>
                 </div>
-                <div
-                  className={`sub-menu ${openMenus[item.title] ? "open" : ""}`}
-                >
+                <div className={`sub-menu ${openMenus[item.title] ? "open" : ""}`}>
                   {item.subMenu.map((sub) => (
                     <NavLink to={sub.path} key={sub.title} className="sub-item">
                       {sub.title}
@@ -97,11 +88,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
         ))}
       </nav>
       <div className="mobile-logout">
-  <button className="logout-btn">
-    <FaSignOutAlt className="icon" />
-    <span>Logout</span>
-  </button>
-</div>
+        <button className="logout-btn">
+          <FaSignOutAlt className="icon" />
+          <span>Logout</span>
+        </button>
+      </div>
     </aside>
   );
 };

@@ -92,12 +92,12 @@
 
         .sub-item {
           display: block;
-          padding: 1rem 1.5rem;
+          padding: 0.7rem 1rem;
           font-size: 0.9rem;
           color: $color-text-light;
           border-radius: 0.4rem;
           text-decoration: none;
-
+          margin: 0.5rem 0;
           &:hover {
             background-color: rgba(255, 255, 255, 0.06);
           }
