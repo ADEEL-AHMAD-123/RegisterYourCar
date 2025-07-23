@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './HomePage.scss';
 import { FaPlus, FaMinus, FaCheckCircle, FaLightbulb } from 'react-icons/fa';
-import PrimaryButton from '../../components/Primary_Button/PrimaryButton';
+import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 
 const faqs = [
   {

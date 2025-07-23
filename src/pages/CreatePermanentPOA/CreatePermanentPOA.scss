@@ -1,0 +1,17 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.create-poa-page {
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+
+    margin-bottom: 2rem;
+  }
+
+  
+}

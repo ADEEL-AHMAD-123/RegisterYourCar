@@ -7,10 +7,11 @@ const PrimaryButton = ({ children, onClick, className = '', ...props }) => {
       className={`primary-btn ${className}`}
       onClick={onClick}
       {...props}
-    >
+    > 
       {children}
     </button>
   );
 };
 
 export default PrimaryButton;
+ 

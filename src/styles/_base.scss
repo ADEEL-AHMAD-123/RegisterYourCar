@@ -6,13 +6,20 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    
   }
+  html, body {
+    overflow-x: hidden;
+
+    height: 100%;
+  }
+  
 
   *, *::before, *::after {
     box-sizing: border-box;
     overflow-x: hidden;
+
+    
 
     
   }

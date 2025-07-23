@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 import './PowerofAttorney.scss';
 
 const powerData = [
@@ -23,6 +25,7 @@ const powerData = [
 const statuses = ["All", "Active", "Expired", "Pending"];
 
 const PowerOfAttorney = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
 
@@ -33,9 +36,16 @@ const PowerOfAttorney = () => {
     );
   });
 
+  const handleCreatePOA = () => {
+    navigate('/permanent-poa/create/1');
+  };
+
   return (
     <div className="power-of-attorney page-container">
       <h1 className="page-title">Durable powers of attorney</h1>
+
+      <PrimaryButton children="Create A permanent POA" onClick={handleCreatePOA} />
+
       <div className="filters-bar">
         <div className="filter-wrapper">
           <div className="floating-input active">

@@ -2,7 +2,7 @@ import React from 'react';
 import './NotFound.scss';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import PrimaryButton from '../../components/Primary_Button/PrimaryButton';
+import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 
 const NotFound = () => {
   return (
